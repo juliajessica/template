@@ -13,7 +13,9 @@ $(document).ready(function(){
 
   var orderName = $("#order-name").val();
   debugger;
+  var size = $("#size").val();
 
-  $("#order-output").append(orderName);
+  $(".order-name").append(orderName);
+  $(".size-output").append(size);
   });
 });

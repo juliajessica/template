@@ -21,18 +21,28 @@
           <form id="pizza-form">
             <label>Enter a name for your order:</label>
             <input id="order-name" class="form-control" type="text" placeholder="first and last name" required>
+            <h3 class="font-label">Pick your pizza size:</h3>
+              <div class="form-group">
+                <select id="size" class="form-control input-text" required>
+                  <option value="" selected="selected" class="input-text">Select a Size</option>
+                  <option name="pizzaSize" value="Small">Small</option>
+                  <option name="pizzaSize" value="Medium">Medium</option>
+                  <option name="pizzaSize" value="Large">Large</option>
+                  <option name="pizzaSize" value="Extra Large">Extra Large</option>
+                </select>
+              </div>
 
-
-
-
-        <div class="text-center mb-5">
-          <button type="submit" class="btn btn-outline-warning form-control btn-style font-label">Place My Order</button>
+              <div class="text-center mb-5">
+                <button type="submit" class="btn btn-outline-warning form-control btn-style font-label">Place My Order</button>
 
         <!-- <input type="button" id="btn-reset" value="Reset" /> -->
 
-        <div class="form-group" id="order-output">
+                <div class="form-group" id="order-output">
+                  <p><span class="order-name"></span>, here are your order details</p>
+                  <p>Pizza Size: <span class="size-output"></span></p>
 
-        </div>
+                </div>
+              </div>
           </form>
         </div>
       </div>
