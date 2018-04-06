@@ -1,9 +1,31 @@
 //backend logic
-function PizzaOrder(price = 0, size, topping){
+function PizzaOrder(price = 0, size, topping){ //constructor
   this.price = price;
   this.size = size;
   this.toppping = topping;
 }
+
+PizzaOrder.prototype.pizzaCalculation = function(){ //prototype method
+  if (this.size === "Small") {
+  this.price += 5;
+  } else if (this.size === "Medium") {
+    this.price += 7;
+  } else if (this.size === "Large") {
+    this.price += 10;
+  } else if (this.size === "Extra Large") {
+    this.price += 12;
+  }
+
+  if (this.topping === "Sausage" || this.topping === "Pepperoni") {
+    this.price += 2;
+  } else if (this.topping === "Mushrooms" || this.topping === "Green Peppers" || this.topping === "Olives") {
+    this.price += .50; //need to convert the parseint to decimals?
+  } else if (this.topping === "Extra Cheese") {
+    this.price += 1;
+  }
+   return this.price;
+   // console.log(this.price);
+  }
 
 
 
