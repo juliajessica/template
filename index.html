@@ -14,19 +14,28 @@
   <body>
     <div class="container-fluid">
       <div class="jumbotron text-center">
-        <h1>Week Four Assignment</h1>
+        <h1>Poppy's Pizza Parlor:</h1>
       </div>
-      <form id="">
+      <div class="row">
+        <div class="col">
+          <form id="pizza-form">
+            <label>Enter a name for your order:</label>
+            <input id="order-name" class="form-control" type="text" placeholder="first and last name" required>
 
 
-        <button type="submit" class="btn btn-primary btn-block  mt-2 mx-auto">Submit!</button>
 
-        <input type="button" id="btn-reset" value="Reset" />
 
-        <div class="user-output form-group">
+        <div class="text-center mb-5">
+          <button type="submit" class="btn btn-outline-warning form-control btn-style font-label">Place My Order</button>
+
+        <!-- <input type="button" id="btn-reset" value="Reset" /> -->
+
+        <div class="form-group" id="order-output">
 
         </div>
-      </form>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
