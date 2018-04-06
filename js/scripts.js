@@ -64,8 +64,8 @@ $(document).ready(function(){
 
     $(".pizzaOrderName").last().click(function(){
       // $(".orderName").append(orderName); //posting first name so user can click and see detials
-      $(".order-name").append(orderName);
-      $(".size-output").append(size);
+      $(".order-name").text(orderName);
+      $(".size-output").text(size);
       $('.topping-output').text(toppingChoiceArray);
       console.log(size.pizzaCalculation);
     });

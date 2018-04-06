@@ -22,3 +22,47 @@ body {
 pizzaOrderName:hover {
   text-decoration: underline;
 }
+
+#h1Banner {
+  margin:20px;
+  padding:10px;
+}
+
+img {
+  height:120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#order-output {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label, .font-label {
+ font-family: 'Playfair Display', serif;
+ margin: 10px;
+ font-size: 29px;
+}
+
+.input-text, .btn-style {
+  font-family: 'IBM Plex Serif', serif;
+  font-size: 29px;
+}
+
+.btn {
+  padding: 14px 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #3d5432;
+  font-size: 22px;
+}
+
+a:hover {
+  opacity:1;
+  color: #777c76;
+  cursor:pointer;
+}
