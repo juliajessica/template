@@ -7,6 +7,7 @@ function PizzaOrder(price, size, topping){ //constructor
 
 PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method to calculate the price
   if (this.size === "Small") {
+    debugger;
     this.price += 5;
   } else if (this.size === "Medium") {
     this.price += 7;
@@ -14,6 +15,8 @@ PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method 
     this.price += 10;
   } else if (this.size === "Extra Large") {
     this.price += 12;
+    debugger;
+    console.log(this.price);
   }
 
   if (this.topping === "Sausage" || this.topping === "Pepperoni") {
@@ -22,6 +25,7 @@ PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method 
     this.price += .50; //need to convert the parseint to decimals?
   } else if (this.topping === "Extra Cheese") {
     this.price += 1;
+    console.log(this.price);
   }
    return this.price;
    // console.log(this.price);
@@ -43,21 +47,27 @@ $(document).ready(function(){
     e.preventDefault();
 
     var orderName = $("#order-name").val();
+    var price = 0;
     var size = $("#size").val();
     var toppingChoiceArray = [];
-    // console.log(toppingChoiceArray);
+
     $("input:checkbox[name=topping]:checked").each(function(){  //getting each selected topping
       var topping = $(this).val();
       toppingChoiceArray.push(" " + topping); //pushing selected toppings to the topping array
-      // $('.topping-output').text(toppingChoiceArray);
-      // console.log(toppingChoiceArray);
+      $('.topping-output').text(toppingChoiceArray);
+      console.log(toppingChoiceArray);
     });
-    var newPizzaOrder = new PizzaOrder(orderName, size, toppingChoiceArray);//creating an instance that holds the values for each item
     $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
+
+    var newPizzaOrder = new PizzaOrder(price, size, toppingChoiceArray); //instance that holds the values for each item
+
       var pizzaPriceEstimator = newPizzaOrder.pizzaCalculation();  //create a variable to run a method to calculate the price
+
+      console.log(newPizzaOrder);
+      console.log(pizzaPriceEstimator);
     $(".pizzaOrderName").last().click(function(){
       var orderInformation = `<img src='img/pizza.png'>
-                              <p class='lead outputDisplay'> ${orderName}, here are your order details</p>
+                              <p class='lead outputDisplay'> ${orderName}, here are your order details:</p>
                               <p class='lead outputDisplay'> Pizza Size: ${size}</p>
                               <p class='lead outputDisplay'> Pizza Topping: ${toppingChoiceArray}</p>
                               <p class='lead outputDisplay'> Price: $ ${pizzaPriceEstimator}</p>
