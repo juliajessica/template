@@ -1,5 +1,9 @@
 //backend logic
-
+function PizzaOrder(price = 0, size, topping){
+  this.price = price;
+  this.size = size;
+  this.toppping = topping;
+}
 
 
 
