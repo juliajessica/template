@@ -1,11 +1,11 @@
 //backend logic
-function PizzaOrder(price = 0, size, topping){ //constructor
+function PizzaOrder(price, size, topping){ //constructor
   this.price = price;
   this.size = size;
   this.toppping = topping;
 }
 
-PizzaOrder.prototype.pizzaCalculation = function(){ //prototype method
+PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method to calculate the price
   if (this.size === "Small") {
     this.price += 5;
   } else if (this.size === "Medium") {
@@ -38,41 +38,41 @@ function resetFields() {
 }
 
 // frontend logic
-debugger;
 $(document).ready(function(){
-  debugger;
   $("form#pizza-form").submit(function(e){
     e.preventDefault();
 
-
     var orderName = $("#order-name").val();
-    debugger;
     var size = $("#size").val();
-
     var toppingChoiceArray = [];
     // console.log(toppingChoiceArray);
-    $("input:checkbox[name=topping]:checked").each(function(){
+    $("input:checkbox[name=topping]:checked").each(function(){  //getting each selected topping
       var topping = $(this).val();
-      // console.log(topping);
-      toppingChoiceArray.push(" " + topping);
+      toppingChoiceArray.push(" " + topping); //pushing selected toppings to the topping array
       // $('.topping-output').text(toppingChoiceArray);
       // console.log(toppingChoiceArray);
-
-      var newPizzaOrder = new PizzaOrder(orderName, size, toppingChoiceArray);
-    }); //creating an instance that holds the values for each item
-        $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
-
+    });
+    var newPizzaOrder = new PizzaOrder(orderName, size, toppingChoiceArray);//creating an instance that holds the values for each item
+    $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
+      var pizzaPriceEstimator = newPizzaOrder.pizzaCalculation();  //create a variable to run a method to calculate the price
     $(".pizzaOrderName").last().click(function(){
-      // $(".orderName").append(orderName); //posting first name so user can click and see detials
-      $(".order-name").text(orderName);
-      $(".size-output").text(size);
-      $('.topping-output').text(toppingChoiceArray);
-      console.log(size.pizzaCalculation);
+      var orderInformation = `<img src='img/pizza.png'>
+                              <p class='lead outputDisplay'> ${orderName}, here are your order details</p>
+                              <p class='lead outputDisplay'> Pizza Size: ${size}</p>
+                              <p class='lead outputDisplay'> Pizza Topping: ${toppingChoiceArray}</p>
+                              <p class='lead outputDisplay'> Price: $ ${pizzaPriceEstimator}</p>
+                              <button type="button" id="reset" class="btn btn-outline-warning btn-lg btn-block btn-style font-label">New Order</button>`;
+      $("#order-output").html(orderInformation);
     });
 
-
-
-
+    // $(".pizzaOrderName").last().click(function(){
+    //   // $(".orderName").append(orderName); //posting first name so user can click and see detials
+    //   $(".order-name").text(orderName);
+    //   $(".size-output").text(size);
+    //   $(".topping-output").text(toppingChoiceArray);
+    //   $(".totalPrice").text(newPizzaOrder);
+    //   console.log(size.pizzaCalculation);
+    // });
     resetFields();
   });
 });
