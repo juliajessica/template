@@ -14,11 +14,11 @@ body {
   background-repeat: no-repeat;
 }
 
-.pizzaOrder{
+.pizzaOrderName {
   cursor: pointer;
   color: #0088cc;
 }
 
-pizzaOrder:hover {
+pizzaOrderName:hover {
   text-decoration: underline;
 }

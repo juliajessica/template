@@ -60,9 +60,9 @@ $(document).ready(function(){
 
       var newPizzaOrder = new PizzaOrder(orderName, size, toppingChoiceArray);
     }); //creating an instance that holds the values for each item
-        $(".order-output").append("<li><span class='pizzaOrder'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
+        $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
 
-    $(".order-output").last().click(function(){
+    $(".pizzaOrderName").last().click(function(){
       // $(".orderName").append(orderName); //posting first name so user can click and see detials
       $(".order-name").append(orderName);
       $(".size-output").append(size);
