@@ -7,7 +7,7 @@ function PizzaOrder(price = 0, size, topping){ //constructor
 
 PizzaOrder.prototype.pizzaCalculation = function(){ //prototype method
   if (this.size === "Small") {
-  this.price += 5;
+    this.price += 5;
   } else if (this.size === "Medium") {
     this.price += 7;
   } else if (this.size === "Large") {
@@ -25,9 +25,17 @@ PizzaOrder.prototype.pizzaCalculation = function(){ //prototype method
   }
    return this.price;
    // console.log(this.price);
-  }
+}
 
+// var order = new PizzaOrder(0);
+// var size = order.pizzaCalculation(4);
+//
+// alert(order);
 
+function resetFields() {
+  $("input").val("");
+  $("option").val("");
+}
 
 // frontend logic
 debugger;
@@ -42,20 +50,29 @@ $(document).ready(function(){
     var size = $("#size").val();
 
     var toppingChoiceArray = [];
-    console.log(toppingChoiceArray);
+    // console.log(toppingChoiceArray);
     $("input:checkbox[name=topping]:checked").each(function(){
       var topping = $(this).val();
-      console.log(topping);
+      // console.log(topping);
       toppingChoiceArray.push(" " + topping);
+      // $('.topping-output').text(toppingChoiceArray);
+      // console.log(toppingChoiceArray);
+
+      var newPizzaOrder = new PizzaOrder(orderName, size, toppingChoiceArray);
+    }); //creating an instance that holds the values for each item
+        $(".order-output").append("<li><span class='pizzaOrder'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
+
+    $(".order-output").last().click(function(){
+      // $(".orderName").append(orderName); //posting first name so user can click and see detials
+      $(".order-name").append(orderName);
+      $(".size-output").append(size);
       $('.topping-output').text(toppingChoiceArray);
-      console.log(toppingChoiceArray);
+      console.log(size.pizzaCalculation);
     });
 
 
 
 
-
-    $(".order-name").append(orderName);
-    $(".size-output").append(size);
+    resetFields();
   });
 });

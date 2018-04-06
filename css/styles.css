@@ -13,3 +13,12 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+.pizzaOrder{
+  cursor: pointer;
+  color: #0088cc;
+}
+
+pizzaOrder:hover {
+  text-decoration: underline;
+}
