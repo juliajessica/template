@@ -29,9 +29,11 @@ _Feel free to email either or us at [juliajessicasher@gmail.com](mailto:juliajes
 ### Specs
 | Behavior | Input | Output |
 | :-------------     | :------------- | :------------- |
-| The program will.. | input | output |
-
-
+| The program will take an input name and return it | Input: "Julia" | Output: "Order for Julia" |
+| The program will create an object for an order and return a selected pizza size | Input: "Small" | Output: "Order for Julia: Small" |
+| The program will return a selected topping size | Input: "Pepperoni" | Output: "Order for Julia: Small, Pepperoni" |
+| The program will add and return more than one topping selected | Input: "Pepperoni, Mushrooms" | Output: "Order for Julia: Small, Pepperoni, Mushrooms" |
+| The program will calculate a total price for the order | Input: "Order for Julia: Small, Pepperoni, Mushrooms" | Output: "Order for Julia: Small, Pepperoni, Mushrooms Total: $7.50" |
 
 ### License
 
