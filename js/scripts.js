@@ -1,5 +1,5 @@
 //backend logic
-function PizzaOrder(price, size, topping){ //constructor
+function PizzaOrder(price =0, size, topping){ //constructor
   this.price = price;
   this.size = size;
   this.topping = topping;
@@ -18,16 +18,6 @@ PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method 
     this.price += 12;
     console.log(this.price);
   }
-
-  // for (var i=0; i<=i.length;i++) { //looping through array to find which topping items were selected
-  //   if (this.topping === " Sausage" || this.topping === " Pepperoni") {
-  //     this.price += 2;
-  //   } else if (this.topping === " Mushrooms" || this.topping === " Green Peppers" || this.topping === " Olives") {
-  //     this.price += 1; //need to convert the parseint to decimals?
-  //   } else if (this.topping === " Extra Cheese") {
-  //     this.price += 1;
-  //     console.log(this.price);
-  //   }
   return this.price;
   console.log(this.price);
 }
@@ -52,7 +42,18 @@ $(document).ready(function(){
       var topping = $(this).val();
       toppingChoiceArray.push(" " + topping); //pushing selected toppings to the topping array
       $('.topping-output').text(toppingChoiceArray);
-      console.log(toppingChoiceArray);
+      for (var i=0; i<=toppingChoiceArray.length;i++) { //looping through array to find which topping items were selected
+        if (toppingChoiceArray === " Sausage" || toppingChoiceArray === " Pepperoni") {
+          var newPrice = price += 2;
+        } else if (toppingChoiceArray === " Mushrooms" || toppingChoiceArray === " Green Peppers" || toppingChoiceArray === " Olives") {
+          var newPrice = price += 1; //need to convert the parseint to decimals?
+        } else if (toppingChoiceArray === " Extra Cheese") {
+          var newPrice = price += 1;
+          console.log(newPrice);
+          console.log(toppingChoiceArray);
+        }
+      }
+
     });
     $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
 
@@ -72,8 +73,6 @@ $(document).ready(function(){
 
       $(".show-order").html(orderInformation);
     });
-    // <button type="button" id="reset" class="btn btn-outline-warning btn-lg btn-block btn-style font-label">New Order</button>
-    ///
     resetFields();
   });
   $("#reset").click(function(){
