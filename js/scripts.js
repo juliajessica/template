@@ -35,7 +35,7 @@ PizzaOrder.prototype.pizzaCalculation = function(){ //create a prototype method 
 function resetFields() {
   $("#order-name").val("");
   $("#size").val("");
-  $("#toppingSelection").val("");
+  $('input[type=checkbox]').prop('checked', false);
 }
 
 // frontend logic
@@ -68,19 +68,15 @@ $(document).ready(function(){
                               <p class='lead outputDisplay'> ${orderName}, here are your order details:</p>
                               <p class='lead outputDisplay'> Pizza Size: ${size}</p>
                               <p class='lead outputDisplay'> Pizza Topping: ${toppingChoiceArray}</p>
-                              <p class='lead outputDisplay'> Price: $ ${pizzaPriceEstimator}</p>
-                              <button type="button" id="reset" class="btn btn-outline-warning btn-lg btn-block btn-style font-label">New Order</button>`;
+                              <p class='lead outputDisplay'> Price: $ ${pizzaPriceEstimator}</p>`;
+
       $(".show-order").html(orderInformation);
     });
-
-    // $(".pizzaOrderName").last().click(function(){
-    //   // $(".orderName").append(orderName); //posting first name so user can click and see detials
-    //   $(".order-name").text(orderName);
-    //   $(".size-output").text(size);
-    //   $(".topping-output").text(toppingChoiceArray);
-    //   $(".totalPrice").text(newPizzaOrder);
-    //   console.log(size.pizzaCalculation);
-    // });
+    // <button type="button" id="reset" class="btn btn-outline-warning btn-lg btn-block btn-style font-label">New Order</button>
+    ///
     resetFields();
+  });
+  $("#reset").click(function(){
+
   });
 });

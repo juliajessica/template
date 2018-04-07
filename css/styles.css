@@ -56,11 +56,11 @@ label, .font-label, .output-text, .pizzaOrderName {
   font-size: 22px;
 }
 
-a:hover {
+/*a:hover {
   opacity:1;
   color: #777c76;
   cursor:pointer;
-}
+}*/
 
 #order-output {
   display: none;
