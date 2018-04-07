@@ -53,7 +53,6 @@ $(document).ready(function(){
           console.log(toppingChoiceArray);
         }
       }
-
     });
     $("#order-output").append("<li><span class='pizzaOrderName'>" + orderName + ", click here for your order details" + "</span></li>"); //listing name for order details
 
